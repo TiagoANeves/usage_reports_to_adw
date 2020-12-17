@@ -97,6 +97,7 @@ Oracle Application Express (APEX) will be used for reporting.
 ## 6. Install Python 3 OCI packages
 
 ```
+   sudo yum install -y python3
    sudo python3 -m pip install --upgrade oci oci-cli cx_Oracle requests pip
 
    # test instance principle is working using oci-cli
