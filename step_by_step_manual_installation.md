@@ -114,15 +114,10 @@ Oracle Application Express (APEX) will be used for reporting.
 ```
    # Please refer to the download site for Manual installation = https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html
 
-   # update Oracle Linux el7 repository
-   sudo yum -y install oracle-release-el7
-
-   # List instant client packages
-   sudo yum list oracle-instantclient*
-
-   # please choose basic and sqlplus package, below example on 18.3
-   sudo yum install -y oracle-instantclient18.3-basic.x86_64 oracle-instantclient18.3-sqlplus.x86_64
-   sudo ln -s /usr/lib/oracle/18.3 /usr/lib/oracle/current
+   # please choose basic and sqlplus package, below example on 19.9
+   sudo rpm -i https://yum.oracle.com/repo/OracleLinux/OL7/oracle/instantclient/x86_64/getPackage/oracle-instantclient19.9-basic-19.9.0.0.0-1.x86_64.rpm
+   sudo rpm -i https://yum.oracle.com/repo/OracleLinux/OL7/oracle/instantclient/x86_64/getPackage/oracle-instantclient19.9-sqlplus-19.9.0.0.0-1.x86_64.rpm
+   sudo ln -s /usr/lib/oracle/19.9 /usr/lib/oracle/current
 
    # setup oracle home variables
    # Add the below to $HOME/.bashrc:
