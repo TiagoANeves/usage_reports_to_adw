@@ -7,7 +7,7 @@
 # Written by Adi Zohar, October 2020
 # Git Location = https://github.com/oracle/oci-python-sdk/tree/master/examples/usage_reports_to_adw
 #
-# Version 2020-10-22
+# Version 2020-12-17
 #
 #########################################################################################################################
 
@@ -35,10 +35,10 @@ echo "Completed." | tee -a $LOG
 ###########################################
 echo "" | tee -a $LOG
 echo "########################################################################" | tee -a $LOG
-echo "# 2. Install Oracle Instant Client." | tee -a $LOG
+echo "# 2. Install Oracle Instant Client 18.3." | tee -a $LOG
 echo "########################################################################" | tee -a $LOG
 sudo yum install -y oracle-release-el7 | tee -a $LOG
-sudo yum install -y oracle-instantclient19.8-basic.x86_64 oracle-instantclient19.8-sqlplus.x86_64 | tee -a $LOG
+sudo yum install -y oracle-instantclient18.3-basic.x86_64 oracle-instantclient18.3-sqlplus.x86_64 | tee -a $LOG
 echo "Completed." | tee -a $LOG
 
 ###########################################
@@ -48,7 +48,7 @@ echo "" | tee -a $LOG
 echo "########################################################################" | tee -a $LOG
 echo "# 3. Setup .bashrc env variables." | tee -a $LOG
 echo "########################################################################" | tee -a $LOG
-echo "export CLIENT_HOME=/usr/lib/oracle/19.8/client64" >>$HOME/.bashrc
+echo "export CLIENT_HOME=/usr/lib/oracle/18.3/client64" >>$HOME/.bashrc
 echo "export LD_LIBRARY_PATH=$CLIENT_HOME/lib" >>$HOME/.bashrc
 echo "export PATH=$PATH:$CLIENT_HOME/bin" >>$HOME/.bashrc
 echo "export TNS_ADMIN=$HOME/ADWCUSG" >>$HOME/.bashrc
