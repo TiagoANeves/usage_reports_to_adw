@@ -161,10 +161,10 @@ Oracle Application Express (APEX) will be used for reporting.
 ## 9. Create Database User for the Usage repository
 
 ```
-   sqlplus admin/password@adwcusg_low
+   sqlplus admin/<password>@adwcusg_low
    
    # Choose your own password
-   SQL> create user usage identified by PaSsw0rd2#_#;
+   SQL> create user usage identified by <password>;
    SQL> grant connect, resource, dwrole, unlimited tablespace to usage;
    SQL> exit
 ```
