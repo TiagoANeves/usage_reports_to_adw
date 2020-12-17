@@ -39,6 +39,13 @@ echo "# 2. Install Oracle Instant Client 18.3." | tee -a $LOG
 echo "########################################################################" | tee -a $LOG
 sudo yum install -y oracle-release-el7 | tee -a $LOG
 sudo yum install -y oracle-instantclient18.3-basic.x86_64 oracle-instantclient18.3-sqlplus.x86_64 | tee -a $LOG
+if [ $? -eq 0 ]; then
+   echo "   Completed." | tee -a $LOG
+else
+   echo "   Error installing oracle instant client, need to perform it manually, Abort, log=$LOG" | tee -a $LOG
+   exit 1
+fi
+sudo ln -s /usr/lib/oracle/18.3 /usr/lib/oracle/current
 echo "Completed." | tee -a $LOG
 
 ###########################################
@@ -48,7 +55,7 @@ echo "" | tee -a $LOG
 echo "########################################################################" | tee -a $LOG
 echo "# 3. Setup .bashrc env variables." | tee -a $LOG
 echo "########################################################################" | tee -a $LOG
-echo "export CLIENT_HOME=/usr/lib/oracle/18.3/client64" >>$HOME/.bashrc
+echo "export CLIENT_HOME=/usr/lib/oracle/current/client64" >>$HOME/.bashrc
 echo "export LD_LIBRARY_PATH=$CLIENT_HOME/lib" >>$HOME/.bashrc
 echo "export PATH=$PATH:$CLIENT_HOME/bin" >>$HOME/.bashrc
 echo "export TNS_ADMIN=$HOME/ADWCUSG" >>$HOME/.bashrc
