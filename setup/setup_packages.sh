@@ -35,18 +35,21 @@ echo "Completed." | tee -a $LOG
 ###########################################
 echo "" | tee -a $LOG
 echo "########################################################################" | tee -a $LOG
-echo "# 2. Install Oracle Instant Client 18.3." | tee -a $LOG
+echo "# 2. Install Oracle Instant Client 19.9." | tee -a $LOG
 echo "########################################################################" | tee -a $LOG
-sudo yum install -y oracle-release-el7 | tee -a $LOG
-sudo yum install -y oracle-instantclient18.3-basic.x86_64 oracle-instantclient18.3-sqlplus.x86_64 | tee -a $LOG
+sudo rpm -i https://yum.oracle.com/repo/OracleLinux/OL7/oracle/instantclient/x86_64/getPackage/oracle-instantclient19.9-basic-19.9.0.0.0-1.x86_64.rpm | tee -a $LOG
+sudo rpm -i https://yum.oracle.com/repo/OracleLinux/OL7/oracle/instantclient/x86_64/getPackage/oracle-instantclient19.9-sqlplus-19.9.0.0.0-1.x86_64.rpm | tee -a $LOG
+sudo ln -s /usr/lib/oracle/19.9 /usr/lib/oracle/current | tee -a $LOG
+
+# Check if installed
+echo "Check Installation..." | tee -a $LOG
+rpm -qa |grep oracle-instantclient
 if [ $? -eq 0 ]; then
    echo "   Completed." | tee -a $LOG
 else
    echo "   Error installing oracle instant client, need to perform it manually, Abort, log=$LOG" | tee -a $LOG
    exit 1
 fi
-sudo ln -s /usr/lib/oracle/18.3 /usr/lib/oracle/current
-echo "Completed." | tee -a $LOG
 
 ###########################################
 # Setup .bashrc profile
